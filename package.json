@@ -1,0 +1,22 @@
+{
+  "name": "webcraft-studio",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Interactive Web Development Mentor & Blueprint Studio - Learn to build websites from scratch without AI",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "web-development",
+    "education",
+    "html5",
+    "css3",
+    "javascript",
+    "learning",
+    "coding-mentor"
+  ],
+  "author": "",
+  "license": "MIT"
+}

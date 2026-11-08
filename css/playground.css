@@ -1,0 +1,332 @@
+/* ==========================================================================
+   Code Playground & Inspector Styling
+   ========================================================================== */
+
+.playground-layout {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 130px);
+  min-height: 600px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.pg-topbar {
+  background: #111827;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.65rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pg-tabs {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.pg-tab {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--trans);
+}
+
+.pg-tab:hover {
+  background: var(--bg-card);
+  color: var(--text-main);
+}
+
+.pg-tab.active {
+  background: var(--bg-elevated);
+  color: #ffffff;
+  border-color: var(--border-medium);
+  font-weight: 600;
+}
+
+.pg-tab.inspector-tab {
+  color: #38bdf8;
+}
+
+.pg-tab.inspector-tab.active {
+  background: rgba(6, 182, 212, 0.15);
+  border-color: rgba(6, 182, 212, 0.4);
+}
+
+.pg-controls-right {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.pg-select {
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  color: var(--text-main);
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+  border-radius: var(--radius-sm);
+  outline: none;
+  cursor: pointer;
+}
+
+/* Split Pane */
+.pg-split-pane {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex: 1;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .pg-split-pane {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
+/* Editor Pane */
+.pg-editor-pane {
+  display: flex;
+  flex-direction: column;
+  background: #0d1117;
+  border-right: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+.editor-header {
+  background: #161b22;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.editor-filename {
+  font-family: var(--font-mono);
+  color: #79c0ff;
+  font-weight: 600;
+}
+
+.editor-hint {
+  color: var(--text-dim);
+  font-size: 0.75rem;
+}
+
+.pg-textarea {
+  flex: 1;
+  width: 100%;
+  background: #0d1117;
+  color: #e6edf3;
+  border: none;
+  padding: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  resize: none;
+  outline: none;
+  white-space: pre;
+  overflow-wrap: normal;
+  overflow-x: auto;
+}
+
+/* Preview Pane */
+.pg-preview-pane {
+  display: flex;
+  flex-direction: column;
+  background: #1e293b;
+  overflow: hidden;
+}
+
+.preview-toolbar {
+  background: #0f172a;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.viewport-buttons {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.vp-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--trans);
+}
+
+.vp-btn:hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.vp-btn.active {
+  background: var(--bg-card);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.preview-status-pill {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--brand-success);
+}
+
+.preview-frame-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  background: #334155;
+  padding: 12px;
+  overflow: auto;
+  transition: all 0.25s ease;
+}
+
+.preview-frame-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  transition: width 0.3s ease;
+}
+
+.preview-frame-wrapper.tablet iframe {
+  width: 768px;
+}
+
+.preview-frame-wrapper.mobile iframe {
+  width: 375px;
+}
+
+/* Inspector Panel */
+.inspector-panel {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.inspector-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem 0;
+  color: var(--text-main);
+}
+
+.inspector-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0 0 1.25rem 0;
+}
+
+.audit-summary-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.audit-score-pill {
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+}
+
+.audit-score-pill.score-good {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--brand-success);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.audit-score-pill.score-warn {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--brand-warning);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.audit-counts {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.audit-cards-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.audit-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+}
+
+.audit-card.error {
+  border-color: rgba(239, 68, 68, 0.3);
+  background: rgba(239, 68, 68, 0.05);
+}
+
+.audit-card.pass {
+  border-color: rgba(16, 185, 129, 0.2);
+  background: rgba(16, 185, 129, 0.04);
+}
+
+.audit-card.tip {
+  border-color: rgba(6, 182, 212, 0.2);
+  background: rgba(6, 182, 212, 0.04);
+}
+
+.audit-card-icon {
+  font-size: 1.25rem;
+}
+
+.audit-card-body {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.audit-card-body strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  margin-bottom: 0.25rem;
+}
+
+.audit-card-body p {
+  margin: 0 0 0.5rem 0;
+  line-height: 1.45;
+}
+
+.audit-fix {
+  background: #0f172a;
+  padding: 0.4rem 0.65rem;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #38bdf8;
+}
